@@ -17,20 +17,23 @@
                                     <th>Nome</th>
                                     <th>Email</th>
                                     <th>Informacoes</th>
-                                    <th>Opcoes</th>
+                                    <th>Editar</th>
+                                    <th>Deletar</th>
                                 </tr>
                                 @foreach($contatos as $contato)
                                         <tr>
                                             <td>{{ $contato->nome }}</td>
                                             <td>{{ $contato->email }} </td>
                                             <td>{{ $contato->informacoes }}</td>
-                                            <td>
-                                                <form method="get" action="{{url('contatos/'.$contato->id)}}">
+                                            <td align="center">
+                                                <form method="get" action="contatos/{{$contato->id}}">
                                                     {{csrf_field()}}
                                                     <input name="_method" type="hidden" value="PUT">
-                                                    <input type="button" class="btn btn-warning" value="Atualizar">
-                                                </form>
 
+                                                    <input type="button" class="btn btn-default" value="Editar" >
+                                                </form>
+                                            </td>
+                                            <td align="center">
                                                 <form method="post" action="{{url('contatos')}}">
                                                     <input name="_method" type="hidden" value="DELETE">
                                                     <input type="hidden" name="id" value="{{ $contato->id }}">

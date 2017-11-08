@@ -48,6 +48,26 @@ class ContatosController extends Controller
         $contatos = auth()->user()->contato()->get();
         return view('contatos.index', compact('contatos'));
     }
+    
+
+    public function edit($id)
+    {
+        $contato = Contato::where('id',$id)->first();
+
+        if($contato->usuario->id == auth()->id()) {
+            $Dados = array(
+                'itens' =>
+                Contato::where('id', $id)->get()
+            );
+
+            $contatos = auth()->user()->contato()->get();
+
+            return view('contatos.editContacts',$Dados);
+        } else {
+               return response('Nao permitido.', 403);
+            }
+    }
+
 
     public function update($id)
     {

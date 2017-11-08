@@ -13,8 +13,9 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    You are logged in!
+                    <div align="center">
+                        <input type="button" class="btn btn-default" value="Contatos" onclick="javascript: location.href='contatos';" />
+                    </div>                  
                 </div>
             </div>
         </div>

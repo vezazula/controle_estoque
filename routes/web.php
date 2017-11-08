@@ -19,6 +19,7 @@ Route::get('/', function () {
 
 Route::get('/contatos', 'ContatosController@index');
 Route::post('/contatos', 'ContatosController@store');
+Route::get('/contatos/{id}','ContatosController@edit'); 
 Route::delete('/contatos', 'ContatosController@destroy');
 Route::put('/contatos/{id}', 'ContatosController@update');
 
