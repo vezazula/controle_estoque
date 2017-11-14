@@ -7,15 +7,19 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ExampleTest extends TestCase
 {
+    use RefreshDatabase;
     /**
      * A basic test example.
      *
      * @return void
      */
+    
+    /** @test */
     public function testBasicTest()
-    {
-        $response = $this->get('/');
+    {   
+        $usuario = factory('App\User')->create();
 
-        $response->assertStatus(200);
+        $this->actingAs($usuario)->get('/home', $usuario->toArray());
+        $this->assertDatabaseHas('users', $usuario->toArray());   
     }
 }
