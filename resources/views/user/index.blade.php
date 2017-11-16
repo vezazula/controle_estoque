@@ -54,7 +54,7 @@
 							<div class="modal-content">
 								<div class="modal-header">
 									<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-									<h3 class="modal-title" id="myModalLabel">Edit user{{$dataUser->id}}</h3>
+									<h3 class="modal-title" id="myModalLabel">Edit user: {{$dataUser->name}}</h3>
 								</div>
 								<form action="/user/update" method="post">
 								{{ csrf_field() }}
@@ -67,20 +67,12 @@
 											<input type="email" name="email" class="form-control" value="{{$dataUser->email}}" placeholder="Email">
 											<br>
 											
-											@if($dataUser->id != $user->id)
-											@if($dataUser->permission == 1)
-											<label>Administrator</label>
+											<label>Status</label>
 											<div class="radio">
-											  	<label><input type="radio" name="permission" value="1" checked>Yes</label>&nbsp;
-											  	<label><input type="radio" name="permission" value="0" >No</label>
+											  	<label><input type="radio" name="status" value="Active" checked>Active</label>&nbsp;
+											  	<label><input type="radio" name="status" value="Inactive" >Inactive</label>
 											</div>
-											@else
-											<div class="radio">
-											  	<label><input type="radio" name="permission" value="1">Yes</label>&nbsp;
-											  	<label><input type="radio" name="permission" value="0" checked>No</label>
-											</div>
-											@endif
-											@endif
+											
 											
 										</div>
 									</div>
@@ -208,11 +200,6 @@
 		</div>
 	</div>	
 </div>
-
-
-
-
-
 
 @endsection
 
