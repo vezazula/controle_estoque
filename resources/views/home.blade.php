@@ -15,7 +15,24 @@
                     @endif
                     <div align="center">
                         <input type="button" class="btn btn-default" value="Contatos" onclick="javascript: location.href='contatos';" />
-                    </div>                  
+                    </div>  
+                    <br>
+                
+
+                    @if($permission == 1)
+                    
+                    <div align="center">
+                        <input type="button" class="btn btn-default" value="Access Dashboard"  onclick="javascript: location.href='dashboard';">
+                    </div>
+                    <br>
+
+                    <div align="center">
+                        <input type="button" class="btn btn-default" value="Manage Users"  onclick="javascript: location.href='user';">
+                    </div>
+
+                @endif
+
+
                 </div>
             </div>
         </div>

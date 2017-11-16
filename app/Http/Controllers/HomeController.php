@@ -23,6 +23,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        //return view('home');
+        $user = Auth()->user();
+        $permission = $user->permission;
+        return view('home', compact('permission'));
     }
 }

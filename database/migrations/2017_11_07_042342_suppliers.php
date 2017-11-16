@@ -18,6 +18,7 @@ class Suppliers extends Migration
             $table->string('name');
             $table->string('address');
             $table->integer('cnpj');
+            $table->softDeletes();
             $table->timestamps();
         });
 

@@ -10,4 +10,24 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+  	/**
+    * access validation functions
+   	*/    
+
+    public function LoginValidator(){
+    	
+    	if(auth()->user() == null){
+    		abort(403); 
+    	}
+    }
+
+    public function AdmValidator(){
+    	$user = Auth()->user();
+        
+        if ($user->permission == 0){
+            abort(403);
+           //USUÁRIO COMUM
+        }
+	}
 }

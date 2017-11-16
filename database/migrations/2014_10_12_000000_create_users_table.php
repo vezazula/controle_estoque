@@ -23,6 +23,19 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+
+/**
+ * Create administrator
+ */
+        DB::table('users')->insert(
+            array(
+                'name' => 'Administrator',
+                'email' => 'admin@mail.com',
+                'password' => bcrypt('admin123'),
+                'status' => 'Active',
+                'permission' => 1,
+            )
+        );
     }
 
     /**

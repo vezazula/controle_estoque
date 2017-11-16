@@ -25,7 +25,7 @@ class Products extends Migration
 
 
         Schema::table('products', function (Blueprint $table) {
-           $table->foreign('suppliers_id')->references('id')->on('suppliers');
+           $table->foreign('suppliers_id')->references('id')->on('suppliers')->onDelete('cascade');;
         });
     }
 

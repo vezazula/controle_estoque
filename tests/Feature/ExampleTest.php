@@ -17,9 +17,9 @@ class ExampleTest extends TestCase
     /** @test */
     public function testBasicTest()
     {   
-        $usuario = factory('App\User')->create();
+        $user = factory('App\User')->create();
 
-        $this->actingAs($usuario)->get('/home', $usuario->toArray());
-        $this->assertDatabaseHas('users', $usuario->toArray());   
+        $this->actingAs($user)->get('/home', $user->toArray());
+        $this->assertDatabaseHas('users', $user->toArray());   
     }
 }
