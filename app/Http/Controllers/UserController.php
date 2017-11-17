@@ -15,7 +15,7 @@ class UserController extends Controller
         
     	$showUsers = User::orderBy('name', 'ASC')->get();
 
-    	return view('user.index', compact('showUsers', 'user', 'permission'));
+    	return view('user.index', compact('showUsers', 'user', 'status', 'permission'));
     }
 
     public function store(Request $request){
@@ -26,7 +26,7 @@ class UserController extends Controller
     	$listUser->name = $request->name;
     	$listUser->email = $request->email;
     	$listUser->password = bcrypt($request->password);
-        $listUser->status = $request->status;
+        $listUser->status = 'active';
     	$listUser->permission = $request->permission;
 
     	$listUser->save();
@@ -43,7 +43,7 @@ class UserController extends Controller
     	$upUser->name = $request->name;
         $upUser->email = $request->email;
         $upUser->status = $request->status;
-        $upUser->permission = $request->permission;
+        $upUser->permission = $upUser->permission;
 
     	$upUser->save();
 

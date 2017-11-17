@@ -57,7 +57,7 @@
 											<label>Name</label>
 											<input type="text" name="name" class="form-control" value="{{$supplier->name}}" placeholder="Name" autofocus>
 											<label>CNPJ</label>
-											<input type="text" name="cnpj" class="form-control" value="{{$supplier->cnpj}}" placeholder="Description">
+											<input type="number" name="cnpj" class="form-control" value="{{$supplier->cnpj}}" placeholder="Description" maxlength="11">
 											<label>Address</label>
 											<input type="text" name="address" class="form-control" value="{{$supplier->address}}" placeholder="Cost">
 										</div>
@@ -122,7 +122,7 @@
 							<label>Name</label>
 							<input type="text" name="name" class="form-control" placeholder="Name" autofocus>
 							<label>CNPJ</label>
-							<input type="text" name="cnpj" class="form-control" placeholder="CNPJ">
+							<input type="number" name="cnpj" class="form-control" placeholder="CNPJ" maxlength="11">
 							<label>Address</label>
 							<input type="text" name="address" class="form-control" placeholder="Address">
 						

@@ -34,13 +34,13 @@
 					<td>{{$dataUser->permission}}</td>
 				@endif
 
-				@if($dataUser->status ==true)
+				@if($dataUser->status == true)
 				<td>
-						<span class="label label-success">Active</span>
+					<span class="label label-success">Active</span>
 				</td>
 				@else
-						<td>
-						<span class="label label-danger">Inactive</span>
+				<td>
+					<span class="label label-danger">Inactive</span>
 				</td>
 				@endif
 				
@@ -183,10 +183,10 @@
 							<input type="password" name="password_confirmation" class="form-control" placeholder="Password">
 							<br>
 							
-							<label>Status</label>
+							<label>Permission</label>
 							<div class="radio">
-							  	<label><input type="radio" name="status" value="active">Active</label>&nbsp;
-							  	<label><input type="radio" name="status" value="inactive" checked>Inactive</label>
+							  	<label><input type="radio" name="permission" value="1">Administrator</label>&nbsp;
+							  	<label><input type="radio" name="permission" value="0" checked>Basic</label>
 							</div>
 							
 						</div>
