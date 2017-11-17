@@ -46,6 +46,7 @@ class ProductsController extends Controller
        
 
         if (!empty($request->suppliers)) {
+              $product->suppliers_id = $request->suppliers;
             $product->save();
         }
 

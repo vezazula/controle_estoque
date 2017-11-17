@@ -25,6 +25,7 @@ class LoginController extends Controller
      *
      * @var string
      */
+    
     protected $redirectTo = '/home';
 
     /**
@@ -37,17 +38,19 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-  /*   public function findUser(Request $request){
+
+/*
+    public function findUser(Request $request){
         $findUser = User::where('email', $request->email)->first();
         return $findUser;
     }
-    //fazemos de outra forma ?
+
 
 
 
     public function login(Request $request)
     {
-        $this->validateLogin($request);
+        $this->LoginValidator($request);
 
         // If the class is using the ThrottlesLogins trait, we can automatically throttle
         // the login attempts for this application. We'll key this by the username and
@@ -60,7 +63,7 @@ class LoginController extends Controller
 
         $user = $this->findUser($request);
 
-        if (isset($user->status) && $user->status == 1) {
+        if (isset($user->status) && $user->status == "Active") {
             //faremos de outra forma ?
            if ($this->attemptLogin($request)) {
         

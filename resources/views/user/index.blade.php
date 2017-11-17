@@ -34,7 +34,7 @@
 					<td>{{$dataUser->permission}}</td>
 				@endif
 
-				@if($dataUser->status == true)
+				@if($dataUser->status == "Active")
 				<td>
 					<span class="label label-success">Active</span>
 				</td>
@@ -95,7 +95,7 @@
 				<td>{{$dduser->name}}</td>
 				<td>{{$dduser->email}}</td>
 				<td>{{$dduser->permission}}</td>
-				@if($dduser->status ==true)
+				@if($dduser->status =="Active")
 				<td>
 						<span class="label label-success">Active</span>
 				</td>
@@ -133,13 +133,13 @@
 											@if($dduser->permission == 1)
 											<label>Administrator</label>
 											<div class="radio">
-											  	<label><input type="radio" name="status" value="1" checked>Active</label>&nbsp;
-											  	<label><input type="radio" name="status" value="0" >Inactive</label>
+											  	<label><input type="radio" name="status" value="Active" checked>Active</label>&nbsp;
+											  	<label><input type="radio" name="status" value="Inactive" >Inactive</label>
 											</div>
 											@else
 											<div class="radio">
-											  	<label><input type="radio" name="status" value="1">Active</label>&nbsp;
-											  	<label><input type="radio" name="status" value="0" checked>Inactive</label>
+											  	<label><input type="radio" name="status" value="Active">Active</label>&nbsp;
+											  	<label><input type="radio" name="status" value="Inactive" checked>Inactive</label>
 											</div>
 											@endif
 										@endif

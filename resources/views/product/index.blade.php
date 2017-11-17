@@ -36,18 +36,27 @@
 				<th>Description</th>
 				<th>Cost</th>
 				<th>Quantity</th>
-				<th>Actions</th>
+				<th>Supplier</th>
+				<th colspan="2">Actions</th>
 			</tr>
 			@foreach($products as $product)
 			@if($product->quantity > 0)
 			<tr>
 				<td>{{$product->name}}</td>
 				<td>{{$product->description}}</td>
+
 				<td>R${{$product->cost}}</td>
 				<td>{{$product->quantity}}</td>
 				<td>
-					<button type="button" class="btn btn-info" data-toggle="modal" data-target="#finisheProducts{{$product->id}}">
-						Finished products
+				@foreach($suppliers as $supplier)
+					@if($product->suppliers_id == $supplier->id)
+							{{$supplier->name}}
+					@endif 
+				@endforeach
+				</td>
+				<td colspan="2">
+					<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#finisheProducts{{$product->id}}">
+						End
 					</button>
 					<div class="modal fade" id="finisheProducts{{$product->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 						<div class="modal-dialog" role="document">
@@ -56,7 +65,7 @@
 									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 										<span aria-hidden="true">&times;</span>
 									</button>
-									<h3 class="modal-title" id="myModalLabel">Finish product</h3>
+									<h3 class="modal-title" id="myModalLabel"> product</h3>
 								</div>
 								<form action="product/debit" method="post">
 								{{ csrf_field() }}
@@ -75,6 +84,7 @@
 							</div>
 						</div>
 					</div>
+				</td><td>
 					<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#editProduct{{$product->id}}">Edit</button>
 
 					<!-- MODAL: EDIT PRODUCTS -->
@@ -103,11 +113,11 @@
 											<input type="text" name="cost" class="form-control" value="{{$product->cost}}" placeholder="Cost">
 											
 											<label>Quantity</label>
-											<input type="number" name="quantity" min="0" class="form-control" value="{{$produto->quantity}}">
+											<input type="number" name="quantity" min="0" class="form-control" value="{{$product->quantity}}">
 											
 											<label>Supplier</label>
 											<select name="supplier" class="form-control">
-												@foreach($supplier as $supplier)
+												@foreach($suppliers as $supplier)
 												<option value="{{$supplier->id}}" {{$product->supplier_id == $supplier->id ? "selected" : ""}}>
 													{{$supplier->name}} ({{$supplier->cnpj}})
 												</option>
@@ -144,7 +154,8 @@
 							<th>Description</th>
 							<th>Cost</th>
 							<th>Quantity</th>
-							<th colspan="3">Actions</th>
+							<th>Supplier</th>
+							<th colspan="2">Actions</th>
 						</tr>
 						@foreach($products as $product)
 						@if($product->quantity == 0)
@@ -153,6 +164,7 @@
 							<td>{{$product->description}}</td>
 							<td>R${{$product->cost}}</td>
 							<td>{{$product->quantity}}</td>
+							<td>{{$product->supplier_id}}</td>
 							<td>
 								<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#editProductoutStock{{$product->id}}">
 									Edit
@@ -262,7 +274,7 @@
 
 								@foreach($suppliers as $supplier)
 								<option value="{{$supplier->id}}">
-									{{$supplier->nome}} ({{$supplier->cnpj}})
+									{{$supplier->name}} ({{$supplier->cnpj}})
 								</option>
 								@endforeach
 

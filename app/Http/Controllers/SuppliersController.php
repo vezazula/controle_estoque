@@ -41,7 +41,7 @@ class SuppliersController extends Controller
 
     public function search(Request $request){
         parent::LoginValidator();
-        $suppliers = DB::select('SELECT * FROM suppliers WHERE nome LIKE ?', ['%'.$request->name.'%']);
+        $suppliers = DB::select('SELECT * FROM suppliers WHERE name LIKE ?', ['%'.$request->name.'%']);
         return view('supplier.search', compact('suppliers'));    
     }
 

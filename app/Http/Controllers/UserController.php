@@ -56,7 +56,6 @@ class UserController extends Controller
 
     	$disUser = User::where('id', $request->id)->first();
     	$disUser->status = 0;
-        //FAZER ISSO DE OUTRA FORMA?
     	$disUser->save();
 
     	return redirect('/user');
@@ -68,7 +67,6 @@ class UserController extends Controller
 
         $reUser = User::where('id', $request->id)->first();
         $reUser->status = 1;
-         //FAZER ISSO DE OUTRA FORMA?
         $reUser->save();
 
         return redirect('/user');
