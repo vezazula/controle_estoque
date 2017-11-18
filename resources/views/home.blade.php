@@ -13,11 +13,6 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <div align="center">
-                        <input type="button" class="btn btn-default" value="Contatos" onclick="javascript: location.href='contatos';" />
-                    </div>  
-                    <br>
-                
 
                     @if($permission == 1)
                     
@@ -29,8 +24,25 @@
                     <div align="center">
                         <input type="button" class="btn btn-default" value="Manage Users"  onclick="javascript: location.href='user';">
                     </div>
+                    <br>
+                    
+                    @endif
 
-                @endif
+                    <div align="center">
+                        <input type="button" class="btn btn-default" value="Contatos" onclick="javascript: location.href='contatos';" />
+                    </div>  
+                    <br>
+                     <div align="center">
+                        <input type="button" class="btn btn-default" value="Products" onclick="javascript: location.href='product';" />
+                    </div> 
+                    <br> 
+ <div align="center">
+                    <div align="center">
+                        <input type="button" class="btn btn-default" value="Suppliers" onclick="javascript: location.href='supplier';" />
+                    </div> 
+                    <br> 
+
+                 
 
 
                 </div>

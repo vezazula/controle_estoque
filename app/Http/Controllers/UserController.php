@@ -26,7 +26,7 @@ class UserController extends Controller
     	$listUser->name = $request->name;
     	$listUser->email = $request->email;
     	$listUser->password = bcrypt($request->password);
-        $listUser->status = 'active';
+        $listUser->status = 'Active';
     	$listUser->permission = $request->permission;
 
     	$listUser->save();
